@@ -49,11 +49,9 @@ class MLP(Module):
         self.layers = [Layer(sz[i], sz[i+1], nonlin=i!=len(nouts)-1) for i in range(len(nouts))]
 
     def __call__(self, x):
-    if not isinstance(x, (list, tuple, np.ndarray)):
-        raise ValueError("Input must be a list, tuple, or numpy array")
-    for layer in self.layers:
-        x = layer(x)
-    return x
+        for layer in self.layers:
+            x = layer(x)
+        return x
 
     def parameters(self):
         return [p for layer in self.layers for p in layer.parameters()]
