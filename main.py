@@ -26,6 +26,6 @@ for k in range(20):
 
     # Update weights
     for p in n.parameters():
-        p.data += -0.5 * p.grad 
+        p.data += -0.1 * p.grad 
 
     print(k, loss.data)
