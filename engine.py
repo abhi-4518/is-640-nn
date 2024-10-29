@@ -33,3 +33,12 @@ class Value:
         out._backward = _backward
 
         return out
+    
+    def __sub__(self, other): # self - other
+        return self + (-other)
+
+    def __rsub__(self, other): # other - self
+        return other + (-self)
+
+    def __rmul__(self, other): # other * self
+        return self * other
